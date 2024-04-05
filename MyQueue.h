@@ -16,6 +16,7 @@ private:
 
 public:
     MyQueue();
+    MyQueue(T data);
     ~MyQueue();
     void push(T data);
     T pop();

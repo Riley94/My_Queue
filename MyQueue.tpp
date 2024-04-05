@@ -1,15 +1,20 @@
 template<typename T>
-Queue<T>::Queue() : head(nullptr), tail(nullptr), count(0) {}
+MyQueue<T>::MyQueue() : head(nullptr), tail(nullptr), count(0) {}
 
 template<typename T>
-Queue<T>::~Queue() {
+MyQueue<T>::MyQueue(T data) : head(nullptr), tail(nullptr), count(0) {
+    push(data);
+}
+
+template<typename T>
+MyQueue<T>::~MyQueue() {
     while (!empty()) {
         pop();
     }
 }
 
 template<typename T>
-void Queue<T>::push(T data) {
+void MyQueue<T>::push(T data) {
     Node* node = new Node(data);
     if (tail != nullptr) {
         tail->next = node;
@@ -22,7 +27,7 @@ void Queue<T>::push(T data) {
 }
 
 template<typename T>
-T Queue<T>::pop() {
+T MyQueue<T>::pop() {
     if (empty()) throw std::underflow_error("Queue is empty");
     Node* temp = head;
     T data = head->data;
@@ -36,23 +41,23 @@ T Queue<T>::pop() {
 }
 
 template<typename T>
-T Queue<T>::front() const {
+T MyQueue<T>::front() const {
     if (empty()) throw std::underflow_error("Queue is empty");
     return head->data;
 }
 
 template<typename T>
-int Queue<T>::size() const {
+int MyQueue<T>::size() const {
     return count;
 }
 
 template<typename T>
-bool Queue<T>::empty() const {
+bool MyQueue<T>::empty() const {
     return count == 0;
 }
 
 template<typename T>
-void Queue<T>::move_to_rear() {
+void MyQueue<T>::move_to_rear() {
     if (size() > 1) {
         push(pop());
     }
