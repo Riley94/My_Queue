@@ -1,5 +1,3 @@
-#include <vector>
-
 template<typename T>
 Queue<T>::Queue() : head(nullptr), tail(nullptr), count(0) {}
 
