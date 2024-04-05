@@ -1,4 +1,5 @@
 #include "MyQueue.h"
+#include <vector>
 
 template<typename T>
 int recursive_linear_search_last(const std::vector<T>& vec, T target, int index) {
